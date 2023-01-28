@@ -42,7 +42,7 @@ export default function Main() {
   return(
     <>
       <Routes>
-        <Route path='/ssoonnyy/project03_react' element={
+        <Route path='/project03_react' element={
           <div className='wrap'>
             <section className="visual_main">
               <Slider {...visualsettings}>
