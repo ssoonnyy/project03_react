@@ -7,7 +7,7 @@ import Center from './Center';
 import Introduce from './Introduce';
 import './style/header.scss'
 import './style/style.css'
-
+import Main from './Main'
 
 export default function Header() {
 
@@ -17,7 +17,7 @@ export default function Header() {
     <>
       <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand onClick={()=>{navigate('/')}}>
+          <Navbar.Brand onClick={()=>{navigate('/ssoonnyy/project03_react')}}>
             <div className="logo_box">
               <div className="logo_img">
                 <img src={process.env.PUBLIC_URL+'/images/logo.jpg'} alt="로고이미지" />
@@ -48,7 +48,7 @@ export default function Header() {
 
 
       <Routes>
-        <Route path='/' />
+        <Route path='/ssoonnyy/project03_react' element={<Main />}/>
         <Route path='shop/*' element={<Shop />} />
         <Route path='center' element={<Center />} />
         <Route path='introduce' element={<Introduce />} />

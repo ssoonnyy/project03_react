@@ -8,10 +8,6 @@ import hotitem from './hotitemDate'
 import { pain } from './productDatabase';
 import Paindetail from './Paindetail';
 
-document.addEventListener("DOMContentLoaded",()=>{
-
-
-})
 
 export default function Main() {
 
@@ -46,7 +42,7 @@ export default function Main() {
   return(
     <>
       <Routes>
-        <Route path='/' element={
+        <Route path='/ssoonnyy/project03_react' element={
           <div className='wrap'>
             <section className="visual_main">
               <Slider {...visualsettings}>
@@ -194,7 +190,6 @@ export default function Main() {
         </Route>
             
 
-        <Route path='/' />
         <Route path="/detail/:id" element={<Details hots={hots} />} />
         <Route path="/paindetail/:id" element={<Paindetail pains={pains} />} />
       </Routes>

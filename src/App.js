@@ -6,12 +6,14 @@ import './pages/style/main.scss'
 import Main from './pages/Main';
 
 
+
 function App() {
+
 
   return (
     <div className="App">
       <Header />
-      <Main/>
+      <Main />
       <Footer />
     </div>
   );
