@@ -1,0 +1,44 @@
+.container {
+  width: 1240px; 
+  .logo_box {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .logo_txt_box {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      p {
+        margin: 0;
+        font-size: 18px;
+        &:nth-child(1){
+          font-weight: bold;
+        }
+        &:nth-child(2){
+          font-size: 14px;
+          color: #999;
+        }
+      }
+    }
+  }
+  .navbar-nav{
+    a{
+      color: black;
+      &:hover{
+        color: #BF1F1F;
+        font-weight: bold;
+      }
+    }   
+  }
+  .gnb {
+    ul{
+      display: flex;
+      align-items: center;
+      margin: 0;
+      li{
+        padding: 0 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}
