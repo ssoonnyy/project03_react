@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import hotitem from "./hotitemDate";
 import { pain } from "./productDatabase";
+import ItemSlide from "./ItemSlide";
 
 export default function Main() {
   const visualsettings = {
@@ -126,19 +127,12 @@ export default function Main() {
             return (
               <div className="product">
                 <Link to={`/detail/${i}`}>
-                  <div className="product_img">
-                    <img src={hot.image} alt="인기상품" />
-                  </div>
-                  <div className="product_info">
-                    <p className="product_title">{hot.title}</p>
-                    <p className="product_desc">{hot.desc}</p>
-                    <p className="product_price">
-                      {hot.price
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                      원
-                    </p>
-                  </div>
+                  <ItemSlide
+                    image={hot.image}
+                    title={hot.title}
+                    desc={hot.desc}
+                    price={hot.price}
+                  />
                 </Link>
               </div>
             );
@@ -164,19 +158,12 @@ export default function Main() {
             return (
               <div className="product">
                 <Link to={`/paindetail/${l}`}>
-                  <div className="product_img">
-                    <img src={pain.image} alt="인기상품" />
-                  </div>
-                  <div className="product_info">
-                    <p className="product_title">{pain.title}</p>
-                    <p className="product_desc">{pain.desc}</p>
-                    <p className="product_price">
-                      {pain.price
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                      원
-                    </p>
-                  </div>
+                  <ItemSlide
+                    image={pain.image}
+                    title={pain.title}
+                    desc={pain.desc}
+                    price={pain.price}
+                  />
                 </Link>
               </div>
             );
