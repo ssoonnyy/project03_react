@@ -14,7 +14,7 @@ export default function Header() {
         <Container>
           <Navbar.Brand
             onClick={() => {
-              navigate("/project03_react");
+              navigate("project03_react");
             }}
           >
             <div className="logo_box">
