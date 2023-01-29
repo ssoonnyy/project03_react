@@ -22,9 +22,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/project03_react" element={<Main />} />
         <Route path="shop/*" element={<Shop />} />
         <Route path="center" element={<Center />} />
         <Route path="introduce" element={<Introduce />} />
