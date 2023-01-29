@@ -3,8 +3,7 @@ import "./style/main.scss";
 import Slider from "react-slick";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import hotitem from "./hotitemDate";
-import { pain } from "./productDatabase";
+import productDatabase from "./productDatabase";
 import ItemSlide from "./ItemSlide";
 
 export default function Main() {
@@ -33,9 +32,10 @@ export default function Main() {
     centerPadding: 30,
   };
 
-  const [hots] = useState(hotitem);
-  const [pains] = useState(pain);
+  const [categoryChange, setCategoryChange] = useState(productDatabase.pain);
+  const [categoryType, setCategoryTypeChange] = useState("pain");
 
+  console.log(productDatabase.hot);
   return (
     <div className="wrap">
       <section className="visual_main">
@@ -123,15 +123,15 @@ export default function Main() {
       <section className="hot_item">
         <h3>인기상품</h3>
         <Slider {...productsettings}>
-          {hots.map((hot, i) => {
+          {productDatabase.hot.map((product, i) => {
             return (
               <div className="product">
-                <Link to={`/detail/${i}`}>
+                <Link to={`/hotdetail/${i}`}>
                   <ItemSlide
-                    image={hot.image}
-                    title={hot.title}
-                    desc={hot.desc}
-                    price={hot.price}
+                    image={product.image}
+                    title={product.title}
+                    desc={product.desc}
+                    price={product.price}
                   />
                 </Link>
               </div>
@@ -143,8 +143,22 @@ export default function Main() {
       <section className="category">
         <h3>상품 카테고리</h3>
         <ul id="category_tap">
-          <li>통증</li>
-          <li>움직임</li>
+          <li
+            onClick={() => {
+              setCategoryChange(productDatabase.pain);
+              setCategoryTypeChange("pain");
+            }}
+          >
+            통증
+          </li>
+          <li
+            onClick={() => {
+              setCategoryChange(productDatabase.hot);
+              setCategoryTypeChange("hot");
+            }}
+          >
+            움직임
+          </li>
           <li>퍼포먼스</li>
           <li>재활필라테스</li>
           <li>근막&마사지</li>
@@ -154,15 +168,15 @@ export default function Main() {
         </ul>
 
         <Slider {...productsettings} id="category_sheet">
-          {pains.map((pain, l) => {
+          {categoryChange.map((product, l) => {
             return (
-              <div className="product">
-                <Link to={`/paindetail/${l}`}>
+              <div className="product" key={l}>
+                <Link to={`/details/${categoryType}/${product.id}`}>
                   <ItemSlide
-                    image={pain.image}
-                    title={pain.title}
-                    desc={pain.desc}
-                    price={pain.price}
+                    image={product.image}
+                    title={product.title}
+                    desc={product.desc}
+                    price={product.price}
                   />
                 </Link>
               </div>
