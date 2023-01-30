@@ -8,8 +8,6 @@ import VisualMain from "./Main_visual";
 import ProductBox from "./ProductBox";
 
 export default function Main() {
-
-
   const productsettings = {
     dots: false,
     infinite: true,
@@ -23,6 +21,11 @@ export default function Main() {
 
   const [categoryChange, setCategoryChange] = useState(productDatabase.pain);
   const [categoryType, setCategoryTypeChange] = useState("pain");
+
+  function CategoryTap(productDatabase, name) {
+    setCategoryChange(productDatabase);
+    setCategoryTypeChange(name);
+  }
 
   //console.log(productDatabase.hot);
   return (
@@ -53,16 +56,14 @@ export default function Main() {
         <ul id="category_tap">
           <li
             onClick={() => {
-              setCategoryChange(productDatabase.pain);
-              setCategoryTypeChange("pain");
+              CategoryTap(productDatabase.pain, "pain");
             }}
           >
             통증
           </li>
           <li
             onClick={() => {
-              setCategoryChange(productDatabase.hot);
-              setCategoryTypeChange("hot");
+              CategoryTap(productDatabase.move, "move");
             }}
           >
             움직임
@@ -113,7 +114,6 @@ export default function Main() {
           <img src={process.env.PUBLIC_URL + "/images/instar08.jpg"} alt="" />
         </div>
       </section>
-
     </div>
   );
 }

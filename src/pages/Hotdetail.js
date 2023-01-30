@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-
 export default function Hotdetail(props) {
   const { hots } = props;
   const { id } = useParams();
-  console.log(hots)
+  //console.log(hots)
 
   const setCount = useState();
   const [count, setCountdown] = useState(1);

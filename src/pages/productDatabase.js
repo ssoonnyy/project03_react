@@ -152,7 +152,7 @@ const productDatabase = {
       made: "독일",
       madeby: "TOGU",
       price: 28000,
-    }
+    },
   ],
 
   pain: [

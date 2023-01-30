@@ -13,12 +13,11 @@ import productDatabase from "./pages/productDatabase";
 import Hotdetail from "./pages/Hotdetail";
 import Details from "./pages/Details";
 import Cart from "./pages/Cart";
+import ItemSlide from "./pages/ItemSlide";
 
 function App() {
   const [hots] = useState(productDatabase.hot);
   const [pains] = useState(productDatabase.pain);
-
-
 
   return (
     <div className="App">
@@ -30,9 +29,13 @@ function App() {
         <Route path="introduce" element={<Introduce />} />
         <Route path="cart" element={<Cart />} />
         <Route path="/details/hot/:id" element={<Hotdetail hots={hots} />} />
-        <Route path="/details/:category/:id" element={<Details pains={pains} />} />
+        <Route
+          path="/details/:category/:id"
+          element={<Details pains={pains} />}
+        />
       </Routes>
       <Footer />
+      <ItemSlide />
     </div>
   );
 }
