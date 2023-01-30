@@ -1,5 +1,5 @@
 import './style/footer.scss'
-import {Routes, Route, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 export default function Footer() {
 
@@ -9,12 +9,12 @@ export default function Footer() {
       <footer>
         <nav className='footer_nav'>
           <ul>
-            <li><Link to='/'>홈</Link></li>
-            <li><Link to='/'>회사소개</Link></li>
-            <li><Link to='/'>이용약관</Link></li>
-            <li><Link to='/'>개인정보처리방침</Link></li>
-            <li><Link to='/'>이용안내</Link></li>
-            <li><Link to='/'>고객센터</Link></li>
+            <li><Link to='/project03_react'>홈</Link></li>
+            <li><Link to='/project03_react'>회사소개</Link></li>
+            <li><Link to='/project03_react'>이용약관</Link></li>
+            <li><Link to='/project03_react'>개인정보처리방침</Link></li>
+            <li><Link to='/project03_react'>이용안내</Link></li>
+            <li><Link to='/project03_react'>고객센터</Link></li>
           </ul>
         </nav>
         <div className="footer_info_box">
@@ -50,15 +50,7 @@ export default function Footer() {
 
         </div>
 
-      </footer>
-
-
-      <Routes>
-        <Route path='/' />
-      </Routes>
-
-
-      
+      </footer>      
     </>
   )
 }

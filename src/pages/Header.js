@@ -7,6 +7,7 @@ import "./style/style.css";
 
 export default function Header() {
   const navigate = useNavigate();
+  
 
   return (
     <>
@@ -14,7 +15,7 @@ export default function Header() {
         <Container>
           <Navbar.Brand
             onClick={() => {
-              navigate("project03_react");
+              navigate("/project03_react");
             }}
           >
             <div className="logo_box">
@@ -31,11 +32,7 @@ export default function Header() {
             </div>
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link
-              onClick={() => {
-                navigate("/shop");
-              }}
-            >
+            <Nav.Link id="navshop" onClick={() => {navigate("/shop");}}>
               쇼핑몰
             </Nav.Link>
             <Nav.Link
@@ -58,7 +55,7 @@ export default function Header() {
             <ul>
               <li>Login</li>
               <li>Join</li>
-              <li>Cart</li>
+              <li onClick={()=>{navigate("/cart")}}>Cart</li>
               <li>Mypage</li>
             </ul>
           </nav>

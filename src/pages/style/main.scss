@@ -4,7 +4,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 .visual_main {
   margin-bottom: 150px;
   .slick-slider {
@@ -115,37 +114,7 @@
       }
     }
   }
-  .product {
-    width: 295px; height: 421px;
-    border: 1px solid #ccc;
-    .product_img{
-      width: 280px; height: 273px;
-      border-bottom: 1px solid #ccc;
-      img{
-        width: 280px; height: 272px;
-      }
-    }
-    .product_info {
-      height: calc(420px - 273px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 5px;
-      .product_title{
-        font-size: 20px;
-        font-weight: bold;
-      }
-    }
-    &:hover {
-      border-color: #BF1F1F;
-    }
-    &:hover .product_info {
-      background-color: #BF1F1F;
-      color: white;
-    }
-  }
 }
-
 .category{
   width: 1240px;
   margin: 100px auto 150px auto;
@@ -166,7 +135,6 @@
       cursor: pointer;
     }
   }
-
   .slick-slider {
     .slick-slide {
       padding: 0 10px;
@@ -198,34 +166,35 @@
       }
     }
   }
-  .product {
-    width: 295px; height: 421px;
-    border: 1px solid #ccc;
-    .product_img{
-      width: 280px; height: 273px;
-      border-bottom: 1px solid #ccc;
-      img{
-        width: 280px; height: 272px;
-      }
+}
+/* 인기상품, 상품카테고리 공통 style */
+.product {
+  width: 295px; height: 421px;
+  border: 1px solid #ccc;
+  .product_img{
+    width: 280px; height: 273px;
+    border-bottom: 1px solid #ccc;
+    img{
+      width: 280px; height: 272px;
     }
-    .product_info {
-      height: calc(420px - 273px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 5px;
-      .product_title{
-        font-size: 20px;
-        font-weight: bold;
-      }
+  }
+  .product_info {
+    height: calc(420px - 273px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    .product_title{
+      font-size: 20px;
+      font-weight: bold;
     }
-    &:hover {
-      border-color: #BF1F1F;
-    }
-    &:hover .product_info {
-      background-color: #BF1F1F;
-      color: white;
-    }
+  }
+  &:hover {
+    border-color: #BF1F1F;
+  }
+  &:hover .product_info {
+    background-color: #BF1F1F;
+    color: white;
   }
 }
 .instar {
@@ -246,7 +215,4 @@
       width: 300px;
     }
   }
-
- 
 }
-

@@ -4,22 +4,11 @@ import Slider from "react-slick";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import productDatabase from "./productDatabase";
-import ItemSlide from "./ItemSlide";
+import VisualMain from "./Main_visual";
+import ProductBox from "./ProductBox";
 
 export default function Main() {
-  const visualsettings = {
-    dots: true,
-    infinite: true,
-    speed: 1200,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    draggable: true,
-    arrows: true,
-    pauseOnHover: true,
-    fade: true,
-  };
+
 
   const productsettings = {
     dots: false,
@@ -35,99 +24,18 @@ export default function Main() {
   const [categoryChange, setCategoryChange] = useState(productDatabase.pain);
   const [categoryType, setCategoryTypeChange] = useState("pain");
 
-  console.log(productDatabase.hot);
+  //console.log(productDatabase.hot);
   return (
     <div className="wrap">
-      <section className="visual_main">
-        <Slider {...visualsettings}>
-          <div>
-            <img
-              src={process.env.PUBLIC_URL + "/images/16576741111.jpg"}
-              alt="메인비쥬얼1"
-            />
-          </div>
-          <div>
-            <img
-              src={process.env.PUBLIC_URL + "/images/16685816621.jpg"}
-              alt="메인비쥬얼2"
-            />
-          </div>
-          <div>
-            <img
-              src={process.env.PUBLIC_URL + "/images/16695931161.jpg"}
-              alt="메인비쥬얼3"
-            />
-          </div>
-          <div>
-            <img
-              src={process.env.PUBLIC_URL + "/images/16710667361.png"}
-              alt="메인비쥬얼4"
-            />
-          </div>
-        </Slider>
-      </section>
-
-      <section className="offline_programs">
-        <h3>센터 프로그램</h3>
-
-        <div className="program_box">
-          <div className="program_box_top">
-            <div>
-              <img
-                src={process.env.PUBLIC_URL + "/images/program01.jpg"}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={process.env.PUBLIC_URL + "/images/program02.jpg"}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={process.env.PUBLIC_URL + "/images/program03.jpg"}
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="program_box_bottom">
-            <div>
-              <img
-                src={process.env.PUBLIC_URL + "/images/program04.jpg"}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={process.env.PUBLIC_URL + "/images/program05.jpg"}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={process.env.PUBLIC_URL + "/images/program06.jpg"}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={process.env.PUBLIC_URL + "/images/program07.jpg"}
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <VisualMain />
       <section className="hot_item">
         <h3>인기상품</h3>
         <Slider {...productsettings}>
           {productDatabase.hot.map((product, i) => {
             return (
-              <div className="product">
-                <Link to={`/hotdetail/${i}`}>
-                  <ItemSlide
+              <div className="product" key={i}>
+                <Link to={`/details/hot/${i}`}>
+                  <ProductBox
                     image={product.image}
                     title={product.title}
                     desc={product.desc}
@@ -172,7 +80,7 @@ export default function Main() {
             return (
               <div className="product" key={l}>
                 <Link to={`/details/${categoryType}/${product.id}`}>
-                  <ItemSlide
+                  <ProductBox
                     image={product.image}
                     title={product.title}
                     desc={product.desc}
@@ -205,6 +113,7 @@ export default function Main() {
           <img src={process.env.PUBLIC_URL + "/images/instar08.jpg"} alt="" />
         </div>
       </section>
+
     </div>
   );
 }

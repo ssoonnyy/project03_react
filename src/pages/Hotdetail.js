@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import "./style/detail.scss";
-import "./style/style.css";
+
 
 export default function Hotdetail(props) {
   const { hots } = props;
   const { id } = useParams();
+  console.log(hots)
 
   const setCount = useState();
   const [count, setCountdown] = useState(1);

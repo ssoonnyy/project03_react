@@ -12,9 +12,13 @@ import { useState } from "react";
 import productDatabase from "./pages/productDatabase";
 import Hotdetail from "./pages/Hotdetail";
 import Details from "./pages/Details";
+import Cart from "./pages/Cart";
 
 function App() {
   const [hots] = useState(productDatabase.hot);
+  const [pains] = useState(productDatabase.pain);
+
+
 
   return (
     <div className="App">
@@ -24,8 +28,9 @@ function App() {
         <Route path="shop/*" element={<Shop />} />
         <Route path="center" element={<Center />} />
         <Route path="introduce" element={<Introduce />} />
-        <Route path="/hotdetail/:id" element={<Hotdetail hots={hots} />} />
-        <Route path="/details/:category/:id" element={<Details />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="/details/hot/:id" element={<Hotdetail hots={hots} />} />
+        <Route path="/details/:category/:id" element={<Details pains={pains} />} />
       </Routes>
       <Footer />
     </div>
