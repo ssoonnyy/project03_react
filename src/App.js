@@ -13,7 +13,6 @@ import productDatabase from "./pages/productDatabase";
 import Hotdetail from "./pages/Hotdetail";
 import Details from "./pages/Details";
 import Cart from "./pages/Cart";
-import ItemSlide from "./pages/ItemSlide";
 
 function App() {
   const [hots] = useState(productDatabase.hot);
@@ -35,7 +34,6 @@ function App() {
         />
       </Routes>
       <Footer />
-      <ItemSlide />
     </div>
   );
 }

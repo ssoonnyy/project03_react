@@ -3,13 +3,15 @@ import { useParams } from "react-router-dom";
 import "./style/detail.scss";
 import "./style/style.css";
 import productDatabase from "./productDatabase";
+import { useDispatch } from "react-redux";
+import { addItem } from "./Store";
+import { useNavigate } from "react-router-dom";
 
 export default function Details() {
+
   const { category, id } = useParams();
-  //console.log(category);
-
-  //console.log(useParams());
-
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   useEffect(() => {
     let findCategory = [];
@@ -19,16 +21,15 @@ export default function Details() {
     if (category === "move") {
       findCategory = productDatabase.move;
     }
-    //console.log(findCategory);
-    //const result = findCategory.filter((product) => product.id === id);
-
+ 
     let result = findCategory.find((product) => product.id === id);
-    //console.log(result);
     setProduct(result);
   }, [category, id]);
 
   const setCount = useState();
   const [count, setCountdown] = useState(1);
+
+  console.log(product)
 
   function Count() {
     function countDown(e) {
@@ -69,9 +70,10 @@ export default function Details() {
       )
     );
   }
-
+  
   return (
     product && (
+      
       <section className="detail_main">
         <div className="product_detail">
           <div className="detail_img">
@@ -114,7 +116,10 @@ export default function Details() {
             <Count setCount={setCount} product={product} />
             <div className="product_btn">
               <button>바로구매</button>
-              <button>장바구니</button>
+              <button onClick={()=>{
+                navigate('/cart')
+                dispatch(addItem({id: product.id , title: product.title, count:1 , totalPrice: product.price}))
+              }}>장바구니</button>
               <button>관심상품</button>
             </div>
           </div>
