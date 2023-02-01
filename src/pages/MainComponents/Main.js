@@ -1,11 +1,10 @@
-import "./style/style.css";
-import "./style/main.scss";
 import Slider from "react-slick";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import productDatabase from "./productDatabase";
-import VisualMain from "./Main_visual";
-import ProductBox from "./ProductBox";
+import productDatabase from "../database/productDatabase";
+import VisualMain from "../SubComponents/Main_visual";
+import ProductBox from "../SubComponents/ProductBox";
+
 
 export default function Main() {
   const productsettings = {
@@ -21,7 +20,6 @@ export default function Main() {
 
   const [categoryChange, setCategoryChange] = useState(productDatabase.pain);
   const [categoryType, setCategoryTypeChange] = useState("pain");
-
   function CategoryTap(productDatabase, name) {
     setCategoryChange(productDatabase);
     setCategoryTypeChange(name);

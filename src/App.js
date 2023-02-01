@@ -1,18 +1,25 @@
 import "./App.css";
 import "./pages/style/style.css";
+import "./pages/style/header.scss";
 import "./pages/style/main.scss";
+import "./pages/style/footer.scss";
+import "./pages/style/introduce.scss";
+import "./pages/style/shop.scss";
+import "./pages/style/cart.scss";
+import "./pages/style/detail.scss";
+
 import { Route, Routes } from "react-router-dom";
-import Header from "./pages/Header";
-import Footer from "./pages/Footer";
-import Main from "./pages/Main";
-import Shop from "./pages/Shop";
-import Center from "./pages/Center";
-import Introduce from "./pages/Introduce";
+import Header from "./pages/MainComponents/Header";
+import Footer from "./pages/MainComponents/Footer";
+import Main from "./pages/MainComponents/Main";
+import Shop from "./pages/MainComponents/Shop";
+import Center from "./pages/MainComponents/Center";
+import Introduce from "./pages/MainComponents/Introduce";
 import { useState } from "react";
-import productDatabase from "./pages/productDatabase";
-import Hotdetail from "./pages/Hotdetail";
-import Details from "./pages/Details";
-import Cart from "./pages/Cart";
+import productDatabase from "./pages/database/productDatabase";
+import Hotdetail from "./pages/SubComponents/Hotdetail";
+import Details from "./pages/SubComponents/Details";
+import Cart from "./pages/MainComponents/Cart";
 
 function App() {
   const [hots] = useState(productDatabase.hot);

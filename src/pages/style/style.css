@@ -4,3 +4,8 @@ li{list-style: none;}
 a{text-decoration: none; color: black;}
 ul {padding :0;}
 p {margin: 0;}
+
+.breadcrumb > li > a:hover {
+  color: #BF1F1F;
+  font-weight: bold;
+}

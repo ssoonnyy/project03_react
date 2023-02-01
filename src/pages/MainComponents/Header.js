@@ -2,16 +2,13 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 
-import "./style/header.scss";
-import "./style/style.css";
-
 export default function Header() {
   const navigate = useNavigate();
   
 
   return (
     <>
-      <Navbar bg="light" variant="light">
+      <Navbar bg="light" variant="light" className="header">
         <Container>
           <Navbar.Brand
             onClick={() => {

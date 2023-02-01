@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addItem } from "./Store";
 
 export default function Hotdetail(props) {
-  const { hots } = props;
+  const { hots} = props;
   const { id } = useParams();
   //console.log(hots)
+  const dispatch = useDispatch()
 
   const setCount = useState();
   const [count, setCountdown] = useState(1);
@@ -90,7 +93,9 @@ export default function Hotdetail(props) {
           <Count setCount={setCount} hots={hots} />
           <div className="product_btn">
             <button>바로구매</button>
-            <button>장바구니</button>
+            <button onClick={()=>{
+                dispatch(addItem({id: hots[id].id , title: hots[id].title, count:1 , totalPrice: hots[id].price, image: hots[id].image}))
+              }}>장바구니</button>
             <button>관심상품</button>
           </div>
         </div>

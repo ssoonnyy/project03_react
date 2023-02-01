@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./style/detail.scss";
-import "./style/style.css";
-import productDatabase from "./productDatabase";
+import productDatabase from "../database/productDatabase";
 import { useDispatch } from "react-redux";
 import { addItem } from "./Store";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 export default function Details() {
 
   const { category, id } = useParams();
   const dispatch = useDispatch()
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   useEffect(() => {
     let findCategory = [];
@@ -21,6 +19,7 @@ export default function Details() {
     if (category === "move") {
       findCategory = productDatabase.move;
     }
+  
  
     let result = findCategory.find((product) => product.id === id);
     setProduct(result);
@@ -29,7 +28,8 @@ export default function Details() {
   const setCount = useState();
   const [count, setCountdown] = useState(1);
 
-  console.log(product)
+
+ 
 
   function Count() {
     function countDown(e) {
@@ -39,6 +39,7 @@ export default function Details() {
         setCountdown(count - 1);
       }
     }
+    const totalPrice = (product.price * count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return (
       product && (
         <div className="total_price">
@@ -58,11 +59,9 @@ export default function Details() {
             </button>
           </p>
           <p className="total_price">
-            총금액
+            총금액 
             <span>
-              {(product.price * count)
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              {totalPrice}
               <span style={{ fontSize: 14 }}> 원</span>
             </span>
           </p>
@@ -70,7 +69,8 @@ export default function Details() {
       )
     );
   }
-  
+  const dotprice = product&&(product.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  //console.log(product)
   return (
     product && (
       
@@ -85,18 +85,14 @@ export default function Details() {
               <p className="product_price">
                 판매가
                 <span>
-                  {product.price
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  {dotprice}
                   <span style={{ fontSize: 14 }}> 원</span>
                 </span>
               </p>
               <p className="membership_price">
                 회원할인가
                 <span>
-                  {product.price
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  {dotprice}
                   <span style={{ fontSize: 14 }}> 원</span>
                 </span>
                 <p style={{ color: "#BF1F1F" }}>
@@ -117,8 +113,7 @@ export default function Details() {
             <div className="product_btn">
               <button>바로구매</button>
               <button onClick={()=>{
-                navigate('/cart')
-                dispatch(addItem({id: product.id , title: product.title, count:1 , totalPrice: product.price}))
+                dispatch(addItem({id: product.id , title: product.title, count:1 , totalPrice: product.price, image: product.image}))
               }}>장바구니</button>
               <button>관심상품</button>
             </div>

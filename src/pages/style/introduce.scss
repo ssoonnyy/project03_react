@@ -1,0 +1,42 @@
+
+//  회사 소개
+.company_introduce {
+  width: 1240px;
+  margin: 50px auto;
+  >img {
+    width: 1240px; height: auto;
+  }
+  .introduce_container{
+    .introduce_top{
+      font-size: 36px;
+      line-height: 1.3;
+      color: #c51d1e;
+      margin-bottom: 45px;
+      margin-top: 70px;
+    }
+    .introduce_mid {
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.66;
+      margin-bottom: 45px;
+    }
+    .introduce_bottom{
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 2;
+      letter-spacing: -0.75px;
+      margin-bottom: 45px;
+    }
+  }
+}
+
+
+// 센터소개
+.center_introduce{
+  width: 1240px;
+  margin: 50px auto;
+  >img {
+    width: 849px;
+    margin: 0 auto;
+  }
+}

@@ -1,3 +1,8 @@
+.header {
+  position: sticky;
+  top: 0; 
+  z-index: 999999999999999999999999999;
+}
 .container {
   width: 1240px; 
   .logo_box {
