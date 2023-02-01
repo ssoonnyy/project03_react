@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 import productDatabase from "../database/productDatabase";
 import { useDispatch } from "react-redux";
 import { addItem } from "./Store";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Details() {
 
   const { category, id } = useParams();
   const dispatch = useDispatch()
-  //const navigate = useNavigate();
+ 
   const [product, setProduct] = useState(null);
   useEffect(() => {
     let findCategory = [];
@@ -27,7 +27,7 @@ export default function Details() {
 
   const setCount = useState();
   const [count, setCountdown] = useState(1);
-
+  const [cartPopup, setCartPopup] = useState(false);
 
  
 
@@ -73,7 +73,6 @@ export default function Details() {
   //console.log(product)
   return (
     product && (
-      
       <section className="detail_main">
         <div className="product_detail">
           <div className="detail_img">
@@ -113,13 +112,53 @@ export default function Details() {
             <div className="product_btn">
               <button>바로구매</button>
               <button onClick={()=>{
-                dispatch(addItem({id: product.id , title: product.title, count:1 , totalPrice: product.price, image: product.image}))
+                dispatch(
+                  //setCartPopup(true),
+                  addItem(
+                    {
+                      id: product.id, 
+                      title: product.title, 
+                      count:1 , 
+                      totalPrice: product.price, 
+                      image: product.image
+                    }
+                  )
+                )
               }}>장바구니</button>
               <button>관심상품</button>
             </div>
           </div>
         </div>
+        {
+        cartPopup === true 
+        ? <CartPopup setCartPopup={setCartPopup} /> //데이터를 주는 것,
+        : null
+        } 
+        
+
       </section>
     )
   );
+}
+
+
+function CartPopup(props) {
+  const {setCartPopup} = props;
+  const navigate = useNavigate();
+
+  return(
+    <div className="cartPopup_alert">
+      <header className="cartPopup_header">
+        <span>알림</span>
+        <span className="popup_close" onClick={()=>{setCartPopup(false)}}></span>
+      </header>
+      <div className="cartpopup_main">
+        <p>장바구니에 추가되었습니다.</p>
+      </div>
+      <div className="cartpopup_btnbox"> 
+        <button onClick={()=>{setCartPopup(false)}}>Shop more</button>
+        <button onClick={()=>{navigate('cart')}}>Go Cart</button>
+      </div>
+    </div>
+  )
 }

@@ -11,8 +11,12 @@ export default function Cart() {
   const dispatch = useDispatch()
 
 
+  function Getresult(){
+    let result =0;
+    result += totalPrice
+  } 
 
-
+  
   return(
     <div className='cart_wrap'>
       <h2>장바구니<BsFillCartFill /></h2>
