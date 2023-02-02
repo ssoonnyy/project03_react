@@ -19,8 +19,6 @@ export default function Details() {
     if (category === "move") {
       findCategory = productDatabase.move;
     }
-  
- 
     let result = findCategory.find((product) => product.id === id);
     setProduct(result);
   }, [category, id]);
@@ -28,8 +26,8 @@ export default function Details() {
   const setCount = useState();
   const [count, setCountdown] = useState(1);
   const [cartPopup, setCartPopup] = useState(false);
+  const navigate = useNavigate()
 
- 
 
   function Count() {
     function countDown(e) {
@@ -113,7 +111,6 @@ export default function Details() {
               <button>바로구매</button>
               <button onClick={()=>{
                 dispatch(
-                  //setCartPopup(true),
                   addItem(
                     {
                       id: product.id, 
@@ -121,21 +118,22 @@ export default function Details() {
                       count:1 , 
                       totalPrice: product.price, 
                       image: product.image
-                    }
+                    },
+                    navigate('../cart')
                   )
                 )
               }}>장바구니</button>
-              <button>관심상품</button>
+              <button onClick={()=>{
+                setCartPopup(true)
+              }}>관심상품</button>
             </div>
           </div>
         </div>
         {
-        cartPopup === true 
-        ? <CartPopup setCartPopup={setCartPopup} /> //데이터를 주는 것,
-        : null
+          cartPopup === true 
+          ? <CartPopup setCartPopup={setCartPopup} />
+          : null
         } 
-        
-
       </section>
     )
   );
@@ -157,8 +155,9 @@ function CartPopup(props) {
       </div>
       <div className="cartpopup_btnbox"> 
         <button onClick={()=>{setCartPopup(false)}}>Shop more</button>
-        <button onClick={()=>{navigate('cart')}}>Go Cart</button>
+        <button onClick={()=>{navigate('../cart')}}>Go Cart</button>
       </div>
     </div>
   )
+  
 }

@@ -1,7 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCount, minusCount, deleteItem, totalPrice } from '../SubComponents/Store';
-import React from 'react';
+import { addCount, minusCount, deleteItem } from '../SubComponents/Store';
+import React, {  } from 'react';
 import { BsFillCartFill } from "react-icons/bs";
 
 
@@ -9,13 +9,20 @@ export default function Cart() {
 
   const state = useSelector((state)=>{return state})
   const dispatch = useDispatch()
-
-
-  function Getresult(){
-    let result =0;
-    result += totalPrice
-  } 
-
+  
+    // let {totalitems, totalAmount} = state.cart.reduce(function(acc,cur){
+    //   acc.totalitems += cur.state.cart.count
+    //   acc.totalPrice += cur.state.cart.price * cur.state.cart.count
+    //   return acc
+    // },
+    // {
+    //   totalitems : 0,
+    //   totalAmount : 0
+    // })
+  
+    console.log(state.cart)
+  
+ 
   
   return(
     <div className='cart_wrap'>
@@ -34,8 +41,8 @@ export default function Cart() {
         <tbody>
          {
           state.cart.map((item, i)=>{
-            let totalPrice =(state.cart[i].totalPrice * state.cart[i].count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-       
+            let total_price =(state.cart[i].totalPrice * state.cart[i].count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")       
+         
             return(
               <tr key={i}>
                 <td>{i+1}</td>
@@ -50,7 +57,7 @@ export default function Cart() {
                     dispatch(minusCount(state.cart[i].id))
                   }}>-</button>
                 </td>
-                <td className='cart_product_price'>{totalPrice}</td>
+                <td className='cart_product_price'>{total_price}</td>
                 <td className='cart_product_del'><button onClick={()=>{dispatch(deleteItem(state.cart[i].id))}}>삭제</button>
                 </td>
               </tr>
@@ -59,7 +66,16 @@ export default function Cart() {
           }
         </tbody>
       </Table>
+      <div>
+        {/* <ul>
+          <li>총결제상품</li>
+          <li>{totalitems}</li>
+        </ul>
+        <ul>
+          <li>총결제금액</li>
+          <li>{totalPrice}</li>
+        </ul> */}
+      </div>
     </div>
   )
 }
-console.log()
