@@ -5,7 +5,6 @@ import productDatabase from "../database/productDatabase";
 import VisualMain from "../SubComponents/Main_visual";
 import ProductBox from "../SubComponents/ProductBox";
 
-
 export default function Main() {
   const productsettings = {
     dots: false,
@@ -20,12 +19,17 @@ export default function Main() {
 
   const [categoryChange, setCategoryChange] = useState(productDatabase.pain);
   const [categoryType, setCategoryTypeChange] = useState("pain");
+
   function CategoryTap(productDatabase, name) {
     setCategoryChange(productDatabase);
     setCategoryTypeChange(name);
   }
 
-  //console.log(productDatabase.hot);
+  const [isActive, setIsActive] = useState(false);
+  const handleClick = () => {
+    setIsActive(current => !current);
+  };
+
   return (
     <div className="wrap">
       <VisualMain />
@@ -52,10 +56,16 @@ export default function Main() {
       <section className="category">
         <h3>상품 카테고리</h3>
         <ul id="category_tap">
-          <li
-            onClick={() => {
-              CategoryTap(productDatabase.pain, "pain");
+          <li id="tab"
+            style={{
+              backgroundColor: isActive ? 'salmon' : '',
+              color: isActive ? 'white' : '',
             }}
+            onClick={() => {
+              CategoryTap(productDatabase.pain, "pain", {color:'red'});
+              handleClick();
+            }}
+          
           >
             통증
           </li>
@@ -73,7 +83,6 @@ export default function Main() {
           <li>요가매트</li>
           <li>보호대</li>
         </ul>
-
         <Slider {...productsettings} id="category_sheet">
           {categoryChange.map((product, l) => {
             return (

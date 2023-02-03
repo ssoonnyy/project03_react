@@ -3,8 +3,7 @@ import Slider from "react-slick";
 import ProductBox from "./ProductBox";
 import productDatabase from "./productDatabase";
 
-export default function ItemSlide(props) {
-  //const { items } = props;
+export default function ItemSlide() {
   const param = useParams();
 
   console.log(param);
