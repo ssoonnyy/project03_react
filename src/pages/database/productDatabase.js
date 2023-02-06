@@ -164,6 +164,13 @@ const productDatabase = {
       made: "독일",
       madeby: "TOGU",
       price: 49000,
+      subimg01:
+        process.env.PUBLIC_URL +
+        "/images/detail_기술서_상단안내_공식수입인증_토구.jpg",
+      subimg02:
+        process.env.PUBLIC_URL + "/images/detail_토구_기술서공통_상단.jpg",
+      subimg03: process.env.PUBLIC_URL + "/images/detail_릴렉스넥.jpg",
+      subimg04: process.env.PUBLIC_URL + "/images/detail_교환환불규정.jpg",
     },
     {
       id: "pain-02",

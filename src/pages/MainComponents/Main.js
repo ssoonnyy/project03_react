@@ -25,11 +25,6 @@ export default function Main() {
     setCategoryTypeChange(name);
   }
 
-  const [isActive, setIsActive] = useState(false);
-  const handleClick = () => {
-    setIsActive(current => !current);
-  };
-
   return (
     <div className="wrap">
       <VisualMain />
@@ -56,16 +51,11 @@ export default function Main() {
       <section className="category">
         <h3>상품 카테고리</h3>
         <ul id="category_tap">
-          <li id="tab"
-            style={{
-              backgroundColor: isActive ? 'salmon' : '',
-              color: isActive ? 'white' : '',
-            }}
+          <li
+            id="tab"
             onClick={() => {
-              CategoryTap(productDatabase.pain, "pain", {color:'red'});
-              handleClick();
+              CategoryTap(productDatabase.pain, "pain");
             }}
-          
           >
             통증
           </li>
