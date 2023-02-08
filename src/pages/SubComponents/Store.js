@@ -1,4 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import productDatabase from "../database/productDatabase";
 
 const cart = createSlice({
   name: "cart",
@@ -45,34 +46,82 @@ const cart = createSlice({
     },
   },
 });
-// const tabmenu = () =>
-//   createSlice({
-//     name: "tabmenu",
-//     initialState: [
-//       { name: "통증", chk: true },
-//       { name: "움직임", chk: false },
-//       { name: "통증", chk: false },
-//       { name: "통증", chk: false },
-//       { name: "통증", chk: false },
-//       { name: "통증", chk: false },
-//       { name: "통증", chk: false },
-//       { name: "통증", chk: false },
-//     ],
-//     reducers: {
-//       selected(state, action) {
-//         if (state.name === state.id) {
-//           this.style.color = "red";
-//           state.push(action.payload);
-//         }
-//       },
-//     },
-//   });
+const tabmenu = createSlice({
+  name: "tabmenu",
+  initialState: [
+    { name: "통증", category: productDatabase.pain, type: "pain", chk: true },
+    {
+      name: "움직임",
+      category: productDatabase.move,
+      type: "move",
+      chk: false,
+    },
+    {
+      name: "퍼포먼스",
+      category: productDatabase.pain,
+      type: "performance",
+      chk: false,
+    },
+    {
+      name: "재활필라테스",
+      category: productDatabase.pain,
+      type: "pilates",
+      chk: false,
+    },
+    {
+      name: "근막&마사지",
+      category: productDatabase.pain,
+      type: "massage",
+      chk: false,
+    },
+    {
+      name: "운동밴드",
+      category: productDatabase.pain,
+      type: "band",
+      chk: false,
+    },
+    {
+      name: "요가매트",
+      category: productDatabase.pain,
+      type: "mat",
+      chk: false,
+    },
+    {
+      name: "보호대",
+      category: productDatabase.pain,
+      type: "guard",
+      chk: false,
+    },
+  ],
+  reducers: {
+    selected(state, action) {
+      //console.log("클릭");
+      const { type } = action.payload;
+      return state.map((tab) => {
+        if (tab.type === type) {
+          return {
+            // ...tab,
+            name: tab.name,
+            category: tab.category,
+            type: tab.type,
+            chk: true,
+          };
+        } else {
+          return {
+            ...tab,
+            chk: false, //...tab으로 불러온 값 중 이 값을 덮어쓰겠다는 뜻
+          };
+        }
+      });
+    },
+  },
+});
 export const { addCount, minusCount, deleteItem, addItem, totalPrice } =
   cart.actions;
-// export const { selected } = tabmenu.actions;
+export const { selected } = tabmenu.actions;
 export default configureStore({
   reducer: {
     cart: cart.reducer,
-    // tabmenu: tabmenu.reducer,
+    tabmenu: tabmenu.reducer,
   },
 });
