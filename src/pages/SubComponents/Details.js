@@ -13,6 +13,9 @@ export default function Details() {
   const [product, setProduct] = useState(null);
   useEffect(() => {
     let findCategory = [];
+    if (category === "hot") {
+      findCategory = productDatabase.hot;
+    }
     if (category === "pain") {
       findCategory = productDatabase.pain;
     }
