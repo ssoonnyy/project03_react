@@ -47,22 +47,15 @@ export default function Main() {
 
       <section className="instar">
         <div className="instar_ani">
-          <img src={process.env.PUBLIC_URL + "/images/instar01.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar02.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar03.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar04.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar05.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar06.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar07.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar08.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar01.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar02.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar03.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar04.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar05.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar06.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar07.jpg"} alt="" />
-          <img src={process.env.PUBLIC_URL + "/images/instar08.jpg"} alt="" />
+          {Array.from({ length: 16 }).map((i) => {
+            return (
+              <img
+                key={i}
+                src={process.env.PUBLIC_URL + `/images/instar0${i + 1}.jpg`}
+                alt={`instar img`}
+              />
+            );
+          })}
         </div>
       </section>
     </div>

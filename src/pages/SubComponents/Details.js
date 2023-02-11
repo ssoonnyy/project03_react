@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "./Store";
 import { useNavigate } from "react-router-dom";
 import { Breadcrumb } from "react-bootstrap";
-
+import ModalPopup from "./Modal";
 export default function Details() {
   const { category, id } = useParams();
   const dispatch = useDispatch();
@@ -30,6 +30,7 @@ export default function Details() {
   const [count, setCountdown] = useState(1);
   const [cartPopup, setCartPopup] = useState(false);
   const [interestPopup, setInterestPopup] = useState(false);
+
   const navigate = useNavigate;
 
   /* 카운트 컴포넌트 */
@@ -76,6 +77,8 @@ export default function Details() {
   const dotprice =
     product && product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   //console.log(product)
+
+  // TODO : 네비게이션 바 컴포넌트와 ~item map 으로 만들어서 돌리기. title이랑 navigate props 시켜줘서 배열로 함ㅎ보자
   return (
     product && (
       <section className="detail_main">
@@ -165,9 +168,19 @@ export default function Details() {
             </div>
           </div>
         </div>
-        {cartPopup === true ? <CartPopup setCartPopup={setCartPopup} /> : null}
+        {cartPopup === true ? (
+          <ModalPopup
+            setModalPopup={setCartPopup}
+            type={"장바구니"}
+            link={"../cart"}
+          />
+        ) : null}
         {interestPopup === true ? (
-          <InterestPopup setInterestPopup={setInterestPopup} />
+          <ModalPopup
+            setModalPopup={setInterestPopup}
+            type={"관심상품"}
+            link={" "}
+          />
         ) : null}
 
         <div className="detail_sub">
@@ -187,73 +200,5 @@ export default function Details() {
         </div>
       </section>
     )
-  );
-}
-
-function CartPopup(props) {
-  const { setCartPopup } = props;
-  const navigate = useNavigate();
-
-  return (
-    <div className="cartPopup_alert">
-      <header className="cartPopup_header">
-        <span>알림</span>
-        <span
-          className="popup_close"
-          onClick={() => {
-            setCartPopup(false);
-          }}
-        ></span>
-      </header>
-      <div className="cartpopup_main">
-        <p>장바구니에 추가되었습니다.</p>
-      </div>
-      <div className="cartpopup_btnbox">
-        <button
-          onClick={() => {
-            setCartPopup(false);
-          }}
-        >
-          Shop more
-        </button>
-        <button
-          onClick={() => {
-            navigate("../cart");
-          }}
-        >
-          Go Cart
-        </button>
-      </div>
-    </div>
-  );
-}
-function InterestPopup(props) {
-  const { setInterestPopup } = props;
-
-  return (
-    <div className="InterestPopup_alert">
-      <header className="InterestPopup_header">
-        <span>알림</span>
-        <span
-          className="popup_close"
-          onClick={() => {
-            setInterestPopup(false);
-          }}
-        ></span>
-      </header>
-      <div className="InterestPopup_main">
-        <p>관심상품에 추가되었습니다.</p>
-      </div>
-      <div className="InterestPopup_btnbox">
-        <button
-          onClick={() => {
-            setInterestPopup(false);
-          }}
-        >
-          Shop more
-        </button>
-        <button>관심상품보기</button>
-      </div>
-    </div>
   );
 }
