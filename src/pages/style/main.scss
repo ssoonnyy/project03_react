@@ -1,13 +1,14 @@
 @font-face {
-    font-family: 'GongGothicMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "GongGothicMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 .visual_main {
   margin-bottom: 150px;
   .slick-slider {
-    .slick-slide{
+    .slick-slide {
       cursor: pointer;
     }
     .slick-arrow {
@@ -18,59 +19,63 @@
       border-left: 0;
       border-top: 0;
       background-color: rgba($color: #000000, $alpha: 0);
-      &.slick-prev{
+      &.slick-prev {
         left: 80px;
         transform: rotate(135deg);
-        &::before{
+        &::before {
           font-size: 0;
         }
       }
-      &.slick-next{
+      &.slick-next {
         right: 80px;
         transform: rotate(315deg);
-        &::before{
+        &::before {
           font-size: 0;
         }
       }
     }
     .slick-dots {
       bottom: 15px;
-      li{
-        width: 30px; height: 10px;
+      li {
+        width: 30px;
+        height: 10px;
         margin: 0 5px;
-        border-radius: 30px; 
+        border-radius: 30px;
         cursor: pointer;
         transition: all 0.3s;
         background-color: #ccc;
         &.slick-active {
-          background-color: #BF1F1F;
+          background-color: #bf1f1f;
         }
-        button::before {font-size: 0;}
+        button::before {
+          font-size: 0;
+        }
       }
     }
   }
 }
 
-.offline_programs{
+.offline_programs {
   width: 1240px;
   margin: 0 auto 150px auto;
-  >h3{
-    text-align: center; 
+  > h3 {
+    text-align: center;
     margin-bottom: 30px;
     font-family: GongGothicMedium;
   }
-  .program_box{
-    >div{
+  .program_box {
+    > div {
       display: flex;
-     
-      &.program_box_top{
+
+      &.program_box_top {
         justify-content: space-evenly;
       }
-      &.program_box_bottom{
+      &.program_box_bottom {
         justify-content: space-between;
       }
-      >div{
-        width: 250px; height: 250px;
+      > div {
+        width: 250px;
+        height: 250px;
         background-color: #ccc;
         border-radius: 100%;
         overflow: hidden;
@@ -80,11 +85,11 @@
   }
 }
 
-.hot_item{
+.hot_item {
   width: 1240px;
   margin: 100px auto 150px auto;
-  >h3 {
-    text-align: center; 
+  > h3 {
+    text-align: center;
     margin-bottom: 30px;
     font-family: GongGothicMedium;
   }
@@ -103,46 +108,41 @@
       border-left: 0;
       border-top: 0;
       background-color: rgba($color: #000000, $alpha: 0);
-      &.slick-prev{
+      &.slick-prev {
         left: -50px;
         transform: rotate(135deg);
-        &::before{
+        &::before {
           font-size: 0;
         }
       }
-      &.slick-next{
+      &.slick-next {
         right: -50px;
         transform: rotate(315deg);
-        &::before{
+        &::before {
           font-size: 0;
         }
       }
     }
   }
 }
-.category{
+.category {
   width: 1240px;
   margin: 100px auto 150px auto;
-  >h3{
-    text-align: center; 
+  > h3 {
+    text-align: center;
     margin-bottom: 30px;
     font-family: GongGothicMedium;
   }
-  #category_tap{
+  #category_tap {
     display: flex;
     justify-content: space-evenly;
     margin: 30px 0 50px;
-    li{
+    li {
       padding: 5px 10px;
       box-sizing: border-box;
       border-radius: 15px;
-      background-color: #eee;
       cursor: pointer;
       transition: all 0.2s;
-      &:active{
-        background-color: #ccc;
-        color: #fff;
-      }
     }
   }
   .slick-slider {
@@ -160,51 +160,52 @@
       border-left: 0;
       border-top: 0;
       background-color: rgba($color: #000000, $alpha: 0);
-      &.slick-prev{
+      &.slick-prev {
         left: -50px;
         transform: rotate(135deg);
-        &::before{
+        &::before {
           font-size: 0;
         }
       }
-      &.slick-next{
+      &.slick-next {
         right: -50px;
         transform: rotate(315deg);
-        &::before{
+        &::before {
           font-size: 0;
         }
       }
     }
   }
 }
-#category_tap{
+#category_tap {
   display: flex;
   justify-content: space-evenly;
   margin: 30px 0 50px;
-  li{
+  li {
     padding: 5px 10px;
     box-sizing: border-box;
     border-radius: 15px;
     cursor: pointer;
     transition: all 0.2s;
-    &.unclicked{
-      background-color: #fff;
-    }
-    &.clicked{
-      background-color: black;
-      color: #fff;
+    border: 1px solid #fff;
+    &:hover {
+      border: 1px solid #bf1f1f;
+      box-sizing: border-box;
     }
   }
 }
 /* 인기상품, 상품카테고리 공통 style */
 .product {
-  width: 295px; height: 421px;
+  width: 295px;
+  height: 421px;
   border: 1px solid #ccc;
-  .product_img{
-    width: 280px; height: 273px;
+  .product_img {
+    width: 280px;
+    height: 273px;
     border-bottom: 1px solid #ccc;
-    img{
-      width: 280px; height: 272px;
+    img {
+      width: 280px;
+      height: 272px;
     }
   }
   .product_info {
@@ -213,34 +214,37 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 5px;
-    .product_title{
+    .product_title {
       font-size: 20px;
       font-weight: bold;
     }
   }
   &:hover {
-    border-color: #BF1F1F;
+    border-color: #bf1f1f;
   }
   &:hover .product_info {
-    background-color: #BF1F1F;
+    background-color: #bf1f1f;
     color: white;
   }
 }
 .instar {
-  width: 100%; height: 300px;
+  width: 100%;
+  height: 300px;
   overflow: hidden;
   position: relative;
 
-  >.instar_ani{
+  > .instar_ani {
     display: flex;
     position: absolute;
-    
+
     animation: instar 360s linear infinite;
-    
+
     @keyframes instar {
-      100% {transform: translateX(-50%);}
+      100% {
+        transform: translateX(-50%);
+      }
     }
-    >img {
+    > img {
       width: 300px;
     }
   }

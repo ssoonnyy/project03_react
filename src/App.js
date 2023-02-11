@@ -17,12 +17,10 @@ import Center from "./pages/MainComponents/Center";
 import Introduce from "./pages/MainComponents/Introduce";
 import { useState } from "react";
 import productDatabase from "./pages/database/productDatabase";
-import Hotdetail from "./pages/SubComponents/Hotdetail";
 import Details from "./pages/SubComponents/Details";
 import Cart from "./pages/MainComponents/Cart";
 
 function App() {
-  const [hots] = useState(productDatabase.hot);
   const [pains] = useState(productDatabase.pain);
 
   return (
@@ -34,7 +32,6 @@ function App() {
         <Route path="center" element={<Center />} />
         <Route path="introduce" element={<Introduce />} />
         <Route path="cart" element={<Cart />} />
-        <Route path="/details/hot/:id" element={<Hotdetail hots={hots} />} />
         <Route
           path="/details/:category/:id"
           element={<Details pains={pains} />}

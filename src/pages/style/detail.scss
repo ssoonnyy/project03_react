@@ -122,6 +122,17 @@
   background-color: #fff;
   border-radius: 15px;
   border: 1px solid #ccc;
+  animation: modal-show 0.3s;
+  @keyframes modal-show {
+    from {
+      opacity: 0;
+      margin-top: -50px;
+    }
+    to {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
   .cartPopup_header,
   .InterestPopup_header {
     height: 30px;

@@ -31,6 +31,8 @@ export default function Details() {
   const [cartPopup, setCartPopup] = useState(false);
   const [interestPopup, setInterestPopup] = useState(false);
   const navigate = useNavigate;
+
+  /* 카운트 컴포넌트 */
   function Count() {
     function countDown(e) {
       if (count <= 1) {

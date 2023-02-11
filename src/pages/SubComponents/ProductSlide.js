@@ -1,14 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import ProductBox from "./ProductBox";
-import productDatabase from "./productDatabase";
 
-export default function ItemSlide() {
-  const param = useParams();
-
-  console.log(param);
-
-  const itemSlidesettings = {
+export const ProductSlide = ({ data, link }) => {
+  const productsettings = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -18,12 +13,13 @@ export default function ItemSlide() {
     draggable: true,
     centerPadding: 30,
   };
+  //console.log("hottest", data);
   return (
-    <Slider {...itemSlidesettings}>
-      {productDatabase.hot.map((product, i) => {
+    <Slider {...productsettings}>
+      {data.map((product, i) => {
         return (
           <div className="product" key={i}>
-            <Link to={`/details/hot/${i}`}>
+            <Link to={`${link}/${product.id}`}>
               <ProductBox
                 image={product.image}
                 title={product.title}
@@ -36,4 +32,4 @@ export default function ItemSlide() {
       })}
     </Slider>
   );
-}
+};

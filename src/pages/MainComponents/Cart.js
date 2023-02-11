@@ -22,8 +22,8 @@ export default function Cart() {
     }
   );
 
-  console.log(totalAmount);
-  console.log(state.cart);
+  //console.log(totalAmount);
+  //console.log(state.cart);
 
   return (
     <div className="cart_wrap">
